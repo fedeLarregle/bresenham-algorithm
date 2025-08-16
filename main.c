@@ -86,9 +86,8 @@ void canvas_to_ppm(canvas* c) {
     }
 }
 
-float f(int x, int y, int r) {
-    float result = (x * x) + (y * y) - (r * r);
-    return result;
+float f(int x, int y, int r_squared) {
+    return (x * x) + (y * y) - r_squared;
 }
 
 void draw_circle(canvas* c, v3 color, int r) {
@@ -99,10 +98,11 @@ void draw_circle(canvas* c, v3 color, int r) {
 
     int x = r;
     int y = 0;
+    int r_squared = (r * r);
 
     while (absolute(x) >= absolute(y)) {
-        float a = absolute(f(x,     y - 1, r));
-        float b = absolute(f(x - 1, y - 1, r));
+        float a = absolute(f(x,     y - 1, r_squared));
+        float b = absolute(f(x - 1, y - 1, r_squared));
 
         if (a < b) {
             y--;
@@ -125,7 +125,7 @@ void draw_circle(canvas* c, v3 color, int r) {
 
 int main() {
     v3 white_color = (v3) {1, 1, 1};
-    int radius = 160;
+    int radius = 240;
     int width = 600;
     int height = 600;
     int offset_radius = (width / 2) + radius;
