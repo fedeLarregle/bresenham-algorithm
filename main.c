@@ -106,26 +106,20 @@ void draw_circle(canvas* c, v3 color, int r) {
 
         if (a < b) {
             y--;
-            write_pixel(c,   x + origin_x,    y + origin_y,  color);
-            write_pixel(c,   y + origin_y,    x + origin_x,  color);
-            write_pixel(c,   y + origin_y,   -x + origin_x,  color);
-            write_pixel(c,  -y + origin_y,    x + origin_x,  color);
-            write_pixel(c,  -y + origin_y,   -x + origin_x,  color);
-            write_pixel(c, (-x + origin_x),   y + origin_y,  color);
-            write_pixel(c, (-x + origin_x), (-y + origin_y), color);
-            write_pixel(c,   x + origin_x,  (-y + origin_y), color);
         } else {
             x--;
             y--;
-            write_pixel(c,   x + origin_x,    y + origin_y,  color);
-            write_pixel(c,   y + origin_y,    x + origin_x,  color);
-            write_pixel(c,   y + origin_y,   -x + origin_x,  color);
-            write_pixel(c,  -y + origin_y,    x + origin_x,  color);
-            write_pixel(c,  -y + origin_y,   -x + origin_x,  color);
-            write_pixel(c, (-x + origin_x),   y + origin_y,  color);
-            write_pixel(c, (-x + origin_x), (-y + origin_y), color);
-            write_pixel(c,   x + origin_x,  (-y + origin_y), color);
         }
+
+        write_pixel(c,   x + origin_x,    y + origin_y,  color);
+        write_pixel(c,   y + origin_y,    x + origin_x,  color);
+        write_pixel(c,   y + origin_y,   -x + origin_x,  color);
+        write_pixel(c,  -y + origin_y,    x + origin_x,  color);
+        write_pixel(c,  -y + origin_y,   -x + origin_x,  color);
+        write_pixel(c, (-x + origin_x),   y + origin_y,  color);
+        write_pixel(c, (-x + origin_x), (-y + origin_y), color);
+        write_pixel(c,   x + origin_x,  (-y + origin_y), color);
+
     }
 }
 
