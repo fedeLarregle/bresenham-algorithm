@@ -6,4 +6,5 @@ gcc main.c -o main
 ./main > image.ppm
 open image.ppm
 ```
-<img width="688" height="652" alt="Captura de pantalla 2025-08-16 a las 22 13 50" src="https://github.com/user-attachments/assets/ab41ccd9-e595-4baf-b40a-d7410b1aa089" />
+
+<img width="689" height="651" alt="Captura de pantalla 2025-08-17 a las 10 45 11" src="https://github.com/user-attachments/assets/b596c0ff-65fd-47ed-ae9a-5edb94ef7d41" />
