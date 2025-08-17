@@ -92,7 +92,7 @@ float f(int x, int y, int r_squared) {
 
 void draw_circle(canvas* c, v3 color, int r) {
     write_pixel(c, c->width / 2, c->height / 2, color);
-    write_pixel(c, (c->width / 2) + r, c->height / 2, color);
+
     int origin_x = (c->width / 2);
     int origin_y = c->height / 2;
 
@@ -100,7 +100,16 @@ void draw_circle(canvas* c, v3 color, int r) {
     int y = 0;
     int r_squared = (r * r);
 
-    while (absolute(x) >= absolute(y)) {
+    do  {
+        write_pixel(c,   x + origin_x,    y + origin_y,  color);
+        write_pixel(c,   y + origin_y,    x + origin_x,  color);
+        write_pixel(c,   y + origin_y,   -x + origin_x,  color);
+        write_pixel(c,  -y + origin_y,    x + origin_x,  color);
+        write_pixel(c,  -y + origin_y,   -x + origin_x,  color);
+        write_pixel(c, (-x + origin_x),   y + origin_y,  color);
+        write_pixel(c, (-x + origin_x), (-y + origin_y), color);
+        write_pixel(c,   x + origin_x,  (-y + origin_y), color);
+
         float a = absolute(f(x,     y - 1, r_squared));
         float b = absolute(f(x - 1, y - 1, r_squared));
 
@@ -111,16 +120,7 @@ void draw_circle(canvas* c, v3 color, int r) {
             y--;
         }
 
-        write_pixel(c,   x + origin_x,    y + origin_y,  color);
-        write_pixel(c,   y + origin_y,    x + origin_x,  color);
-        write_pixel(c,   y + origin_y,   -x + origin_x,  color);
-        write_pixel(c,  -y + origin_y,    x + origin_x,  color);
-        write_pixel(c,  -y + origin_y,   -x + origin_x,  color);
-        write_pixel(c, (-x + origin_x),   y + origin_y,  color);
-        write_pixel(c, (-x + origin_x), (-y + origin_y), color);
-        write_pixel(c,   x + origin_x,  (-y + origin_y), color);
-
-    }
+    } while (absolute(x) >= absolute(y));
 }
 
 int main() {
